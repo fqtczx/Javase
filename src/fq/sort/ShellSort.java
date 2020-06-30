@@ -8,9 +8,11 @@ public class ShellSort {
         int j=5;
         j-=6;//相当与j=j-6
         System.out.println(j);
-        shellsort1(arr);
+//        shellsort1(arr);
+        shellsort2(arr);
     }
 
+    //下面三个方法都是通过交换实现的
     //分成三次实现的
     public static void shellsort(int[] arr){
         int temp=0;
@@ -68,6 +70,41 @@ public class ShellSort {
             System.out.println(Arrays.toString(arr));
             if(length==1){
                 break;
+            }
+        }
+    }
+
+    //老师代码实现
+    public static void shellsort2(int[] arr){
+        int temp=0;
+        int count=0;
+        for(int gap=arr.length/2;gap>0;gap/=2){
+            for(int i=gap;i<arr.length;i++){
+                for(int j=i-gap;j>=0;j-=gap){//j=j-5
+                    if(arr[j]>arr[j+gap]){
+                        temp=arr[j];
+                        arr[j]=arr[j+gap];
+                        arr[j+gap]=temp;
+                    }
+                }
+            }
+            System.out.println(Arrays.toString(arr));
+        }
+    }
+
+    //对希尔排序进行优化，并不是进行交换，而是按照之前的插入排序的移动方法进行的
+    public static void shellsort3(int[] arr){
+        for(int gap=arr.length/2;gap>0;gap/=2){
+            for(int i=gap;i<arr.length;i++){
+                int j=i;
+                int temp=arr[j];
+                if(arr[j]<arr[j-gap]){
+                    while(j-gap >=0 && temp<arr[j-gap]){
+                        arr[j]=arr[j-gap];
+                        j-=gap;
+                    }
+                    arr[j]=temp;
+                }
             }
         }
     }
