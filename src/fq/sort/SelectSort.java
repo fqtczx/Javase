@@ -15,6 +15,7 @@ public class SelectSort {
         System.out.println(Arrays.toString(arr));
     }
 
+    //选择排序
     public static void selectsort(int[] arr){
         for(int i=0;i<arr.length;i++){
             int temp=arr[i];

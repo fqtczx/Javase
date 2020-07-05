@@ -9,7 +9,8 @@ public class ShellSort {
         j-=6;//相当与j=j-6
         System.out.println(j);
 //        shellsort1(arr);
-        shellsort2(arr);
+//        shellsort2(arr);
+        shellsort3(arr);
     }
 
     //下面三个方法都是通过交换实现的
@@ -106,6 +107,7 @@ public class ShellSort {
                     arr[j]=temp;
                 }
             }
+            System.out.println(Arrays.toString(arr));
         }
     }
 }
